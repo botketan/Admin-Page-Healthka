@@ -37,13 +37,24 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
+import Tables from "layouts/tables/index";
+import DriversTables from "layouts/tables/driversindex";
+import MedicineDriversTables from "layouts/tables/medicinedriversindex";
+import OperatorsTables from "layouts/tables/operatorsindex";
 import Billing from "layouts/billing";
-import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import Form from "layouts/billing/components/BillingInformation/FamilyForm";
+import "layouts/billing/components/BillingInformation/form.css";
+import AmbulanceDriversProfile from "layouts/driversprofile/Ambulancedriversprofile";
+import PatientsProfile from "layouts/billing/components/PrescriptionPortal/patient";
+import MedicineDriversProfile from "layouts/driversprofile/MedicinedriversProfile";
+import OperatorsProfile from "layouts/operatorsprofile/operatorsprofile";
+import Orders from "layouts/orders/orders";
+
+
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -59,28 +70,72 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
+    name: "Customers",
+    key: "clist",
     icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
+    route: "/customers",
     component: <Tables />,
   },
   {
     type: "collapse",
-    name: "Billing",
+    name: "Operators",
+    key: "olist",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/operators",
+    component: <OperatorsTables />,
+  },
+  {
+    type: "collapse",
+    name: "Ambulance Drivers",
+    key: "dlist",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/ambulancedrivers",
+    component: <DriversTables />,     
+    // Routes first letter should be capital that is why <driverstables /> is not allowed but <DriversTables /> is allowed
+
+  },
+  {
+    type: "collapse",
+    name: "Medicine Drivers",
+    key: "mlist",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/medicinedrivers",
+    component: <MedicineDriversTables />,     
+    // Routes first letter should be capital that is why <driverstables /> is not allowed but <DriversTables /> is allowed
+
+  },
+  {
+    type: "collapse",
+    name: "Orders",
+    key: "orders",
+    icon: <Icon fontSize="small">receipt_long</Icon>,
+    route: "/orders",
+    component: <Orders />,
+  },
+  // {
+  //   type: "collapse",
+  //   name: "Med Delivery-boys Profile",
+  //   key: "list",
+  //   icon: <Icon fontSize="small">table_view</Icon>,
+  //   route: "/tables",
+  //   component: <Tables />,
+  // },
+  {
+    // type: "collapse",
+    name: "Customer Profile",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
     component: <Billing />,
   },
   {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
+    // type: "collapse",
+    name: "Patient Profile",
+    key: "patient",
+    route: "/patient",
+    component: <PatientsProfile />,
   },
+  
   {
     type: "collapse",
     name: "Notifications",
@@ -106,13 +161,43 @@ const routes = [
     component: <SignIn />,
   },
   {
-    type: "collapse",
+    
     name: "Sign Up",
     key: "sign-up",
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
   },
+  /* Route that will not appear on side nav as type collapse is excluded but routing is done, Ye hua kaise, collapse ka kya role hai aur ye side-nav bhi aaraha hai form pe ye kaise?? */
+  {
+    name:"form",
+    key:"form",
+    route:"/form",
+    component: <Form />,
+
+  },
+  {
+    name:"ambulancedriversprofile",
+    key:"ambulancedriversprofile",
+    route:"/ambulancedriversprofile",
+    component: <AmbulanceDriversProfile />,
+
+  },
+  {
+    name:"medicinedriversprofile",
+    key:"medicinedriversprofile",
+    route:"/medicinedriversprofile",
+    component: <MedicineDriversProfile />,
+
+  },
+  {
+    name:"operatorsprofile",
+    key:"operatorsprofile",
+    route:"/operatorsprofile",
+    component: <OperatorsProfile />,
+
+  }
 ];
+
 
 export default routes;

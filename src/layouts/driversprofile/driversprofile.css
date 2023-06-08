@@ -1,0 +1,75 @@
+ 
+/******Customer Profile image and personal details css *******/
+.profile-container{
+    padding:20px;
+    box-shadow: 2px 2px 2px ;
+    border-radius: 5px;
+    margin: 22px 0px 0px 22px;
+    height: max-content;
+    align-items: center;
+}
+
+.profile-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 10px auto 10px auto;
+    object-fit: cover;
+
+}
+.dprofile{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.ddetails{
+    width: 37.5vw;
+    margin-left: 25px ;
+    margin-top: 25px;
+    padding: 14px 20px 20px 20px;
+
+}
+.detail{
+    font-weight: 300;
+    padding: 15px 0 22px 0;
+    line-height: 1.2;
+}
+#detailsheading{
+    margin-bottom: 5px;
+    font-family: '"Roboto", "Helvetica", "Arial", "sans-serif"';
+    font-weight: 700;
+}
+
+.paymentdues{
+    height: 100%;
+} 
+.flexbox{
+    display:flex;
+    justify-content:space-between;
+}
+.profit{
+    width: 25vw;
+    margin-right: 22px;
+}
+.orders{
+    width: 25vw;
+    margin-right: 22px;
+}
+.payments{
+    width: 25vw;
+}
+@media only screen and (max-width: 700px){
+    .profile{
+        flex-direction: column;
+    }
+    .ddetails{
+        width: 87vw;
+    }
+
+    /* Styling kyun add nahi ho rahi ambulance_invoice aur family_members me???? */
+    .ambulanceinvoicecard{
+        margin-left: 0vw;
+    } 
+    
+   
+}

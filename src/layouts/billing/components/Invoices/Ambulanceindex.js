@@ -23,13 +23,15 @@ import MDButton from "components/MDButton";
 
 // Billing page components
 import Invoice from "layouts/billing/components/Invoice";
+import "layouts/billing/components/customer_profile/customerprofile.css"
 
-function Invoices() {
-  return (
-    <Card sx={{ height: "100%" }}>
+function ambulanceInvoices(props) {
+    return (
+      <div >
+      <Card  className={props.class}  sx={{ "height": "auto"}}>
       <MDBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
         <MDTypography variant="h6" fontWeight="medium">
-          Invoices
+        {props.title}
         </MDTypography>
         <MDButton variant="outlined" color="info" size="small">
           view all
@@ -44,8 +46,9 @@ function Invoices() {
           <Invoice date="March, 01, 2019" id="#AR-803481" price="$300" noGutter />
         </MDBox>
       </MDBox>
-    </Card>
-  );
+  </Card></div>
+      
+);
 }
 
-export default Invoices;
+export default ambulanceInvoices;

@@ -1,0 +1,63 @@
+ 
+/******Customer Profile image and personal details css *******/
+.profile-container{
+    padding:20px;
+    box-shadow: 2px 2px 2px ;
+    border-radius: 5px;
+    margin: 22px 0px 0px 22px;
+    height: max-content;
+    align-items: center;
+}
+
+.profile-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 10px auto 10px auto;
+    object-fit: cover;
+
+}
+.pprofile{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+ 
+}
+.pdetails{
+    width: 37.5vw;
+    margin-left: 25px ;
+    margin-top: 25px;
+    padding: 14px 20px 20px 20px;
+
+}
+.detail{
+    font-weight: 300;
+    padding: 15px 0 22px 0;
+    line-height: 1.2;
+}
+#detailsheading{
+    margin-bottom: 5px;
+    font-family: '"Roboto", "Helvetica", "Arial", "sans-serif"';
+    font-weight: 700;
+}
+.patientname:hover{
+background-color: rgb(225, 223, 220);
+padding: 5px;
+border-radius: 8px;
+}
+
+@media only screen and (max-width: 700px){
+    .profile{
+        flex-direction: column;
+    }
+    .pdetails{
+        width: 87vw;
+    }
+
+    /* Styling kyun add nahi ho rahi ambulance_invoice aur family_members me???? */
+    .ambulanceinvoicecard{
+        margin-left: 0vw;
+    } 
+    
+   
+}

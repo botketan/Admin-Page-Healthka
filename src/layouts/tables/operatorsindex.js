@@ -28,13 +28,13 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import customersTableData from "layouts/tables/data/customersTableData";
+import operatorsData from "layouts/tables/driversTableData/operatorsdata";
 
 import projectsTableData from "layouts/tables/data/projectsTableData";
 import  "layouts/tables/data/customersTableData.css";
 
-function Tables() {
-  const { columns, rows } = customersTableData();
+function OperatorsTables() {
+  const { columns, rows } = operatorsData();
   const { columns: pColumns, rows: pRows } = projectsTableData();
 
   return (
@@ -55,7 +55,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Customers List
+                  Operators List
                 </MDTypography>
               </MDBox>
             <MDBox pt={3}>
@@ -104,4 +104,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default OperatorsTables;

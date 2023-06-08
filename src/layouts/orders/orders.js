@@ -1,3 +1,4 @@
+
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -31,20 +32,23 @@ import PaymentMethod from "layouts/billing/components/PaymentMethod";
 
 import Invoicesm from "layouts/billing/components/Invoices/Medicineindex";
 import Invoicesa from "layouts/billing/components/Invoices/Ambulanceindex";
-import "layouts/billing/components/Invoices/invoices.css";
-import BillingInformation from "layouts/billing/components/BillingInformation";
-import Profile from "./components/customer_profile/CustomerProfile";
-import "./components/customer_profile/customerprofile.css";
-// import Transactions from "layouts/billing/components/Transactions";
 
-function Billing() {
-  return (
-    <DashboardLayout>
+
+// styles
+import "layouts/orders/orders.css"
+
+
+
+
+
+function Orders(){
+    return(
+<DashboardLayout>
       <DashboardNavbar absolute isMini />
       <MDBox mt={8}>
          <MDBox mb={3}>
           <Grid container spacing={3}>
-          <Profile />
+          
            {/* <Grid item xs={12} lg={8}>
               <Grid container spacing={3}>
                 <Grid item xs={12} xl={6}>
@@ -71,25 +75,18 @@ function Billing() {
                 </Grid>
               </Grid>
             </Grid> */}
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} lg={6} ml={0}>
               <Invoicesm class="medicineinvoicecard" title="Medicine Orders"/>
             </Grid>
-          </Grid>
-        </MDBox>
-        <MDBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={7}>
-              <BillingInformation />
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Invoicesa class="ambulanceinvoicecard" title="Ambulance Orders"/>
+            <Grid item xs={14} lg={6} ml={0}>
+              <Invoicesm class="medicineinvoicecard" title="Ambulance Orders"/>
             </Grid>
           </Grid>
         </MDBox>
       </MDBox>
-      <Footer />
+      
     </DashboardLayout>
-  );
+    );
 }
 
-export default Billing;
+export default Orders;

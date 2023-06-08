@@ -28,13 +28,15 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import customersTableData from "layouts/tables/data/customersTableData";
+import React, {useEffect, useState} from "react";
+import driversData from "layouts/tables/driversTableData/driversdata";
 
 import projectsTableData from "layouts/tables/data/projectsTableData";
 import  "layouts/tables/data/customersTableData.css";
 
-function Tables() {
-  const { columns, rows } = customersTableData();
+function DriversTables() {
+
+  const { columns, rows } = driversData();
   const { columns: pColumns, rows: pRows } = projectsTableData();
 
   return (
@@ -55,7 +57,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Customers List
+                  Ambulance Drivers List
                 </MDTypography>
               </MDBox>
             <MDBox pt={3}>
@@ -104,4 +106,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default DriversTables;

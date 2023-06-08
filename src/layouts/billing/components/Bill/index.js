@@ -27,7 +27,7 @@ import MDButton from "components/MDButton";
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
 
-function Bill({ name, company, email, vat, noGutter }) {
+function Bill({ name, contact, email, address, noGutter }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
 
@@ -51,8 +51,8 @@ function Bill({ name, company, email, vat, noGutter }) {
           flexDirection={{ xs: "column", sm: "row" }}
           mb={2}
         >
-          <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {name}
+          <MDTypography class="patientname"variant="button" fontWeight="medium" textTransform="capitalize">
+            <a href="/patient">{name}</a>
           </MDTypography>
 
           <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
@@ -68,9 +68,9 @@ function Bill({ name, company, email, vat, noGutter }) {
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
           <MDTypography variant="caption" color="text">
-            Company Name:&nbsp;&nbsp;&nbsp;
+            Contact No:&nbsp;&nbsp;&nbsp;
             <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {company}
+              {contact}
             </MDTypography>
           </MDTypography>
         </MDBox>
@@ -83,9 +83,9 @@ function Bill({ name, company, email, vat, noGutter }) {
           </MDTypography>
         </MDBox>
         <MDTypography variant="caption" color="text">
-          VAT Number:&nbsp;&nbsp;&nbsp;
+          Address:&nbsp;&nbsp;&nbsp;
           <MDTypography variant="caption" fontWeight="medium">
-            {vat}
+            {address}
           </MDTypography>
         </MDTypography>
       </MDBox>
@@ -101,9 +101,9 @@ Bill.defaultProps = {
 // Typechecking props for the Bill
 Bill.propTypes = {
   name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
+  contact: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
-  vat: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   noGutter: PropTypes.bool,
 };
 
