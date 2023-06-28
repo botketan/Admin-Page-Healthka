@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -40,11 +40,36 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import {  signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../FirebaseAuth/firebaseAuth";
 
 function Basic() {
   const [rememberMe, setRememberMe] = useState(false);
-
+  const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('');
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const navigate = useNavigate();
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    // console.log(refEmail.current, refPassword.current);
+    await  signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          // Signed in
+          // const user = userCredential.user;
+          console.log(userCredential);
+          navigate("/")
+          // ...
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+      });
+
+ 
+  }
 
   return (
     <BasicLayout image={bgImage}>
@@ -84,10 +109,12 @@ function Basic() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" fullWidth />
+              <MDInput type="email" label="Email"  value={email}
+                                onChange={(e) => setEmail(e.target.value)}  fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" fullWidth />
+              <MDInput type="password" label="Password" value={password}
+                                onChange={(e) => setPassword(e.target.value)} fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -102,7 +129,7 @@ function Basic() {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <MDButton variant="gradient" color="info" onClick={onSubmit} fullWidth>
                 sign in
               </MDButton>
             </MDBox>
